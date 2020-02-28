@@ -1,0 +1,168 @@
+\documentclass[12pt,oneside]{report}  %twoside
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% \graphicspath{ {images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{blindtext}  % to fill with randomtext
+% \usepackage[a4paper,width=150mm,top=30mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage[a4paper,tmargin=3cm,bmargin=2.5cm,lmargin=3cm, rmargin=2.5cm, bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Transfer and ensemble learning models in breast mammogram pathology classification}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{Lenin G. Falconí}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%======== number format ===============
+\usepackage{numprint}
+%========BIBLIOGRAPHY==================
+% \usepackage[backend=biber, style=authoryear-ibid, citestyle=apa, sorting=anyt, maxcitenames=2]{biblatex}   % orden alfabeitco o nty
+\usepackage[backend=biber,style=apa,babel=other,maxcitenames=3]{biblatex}
+\addbibresource{mendeley.bib}
+%========LUALATEX======================
+% Usar LuaLatex para compilar
+% Tipo de Letra cambio para xelatex
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+% Arial
+% \setsansfont[
+% BoldFont=fonts/arialbd.ttf,
+% ItalicFont=fonts/ariali.ttf,
+% BoldItalicFont=fonts/arialbi.ttf
+% ]{fonts/arial.ttf}
+%========XELATEX======================
+%========PDFLATEX======================
+
+% \usepackage[T1]{fontenc}
+% \usepackage{helvet}
+%========PDFLATEX======================
+
+\usepackage{anyfontsize}
+% para hacer comillas de copia textual
+\usepackage{dirtytalk}
+
+% para hiperlinks
+\usepackage{hyperref}
+% for boxes around text
+\usepackage{tcolorbox}
+% to strike through text
+\usepackage{ulem}
+% to have tabularx 
+\usepackage{tabularx}
+% to have tabu tables
+\usepackage{tabu}
+\usepackage{booktabs}
+
+% to use csv files
+\usepackage{siunitx}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+% Definition styles:
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+% Math Styles
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathrsfs}
+% Increase of math font size 
+\usepackage{relsize}
+\DeclareMathOperator{\ypred}{\phi}  %options \hslash
+
+% Lorem Ipsum 
+\usepackage{lipsum}
+%========= Defining Values of the Thesis=============%
+\newcommand{\ThesisTitle}{\MakeUppercase{Thesis Title} }
+\newcommand{\AuthorName}{Philip J. Fry}
+\newcommand{\AuthorLongName}{Philp Jay Fry }
+\newcommand{\CoodirectorName}{Carl Edward Sagan}
+\newcommand{\DirectorName}{Augusta Ada Byron Lovelace}
+\title{\ThesisTitle}
+\author{\AuthorName}
+\date{Day Month Year}
+%======== Controlling numeration ===================%
+% https://tex.stackexchange.com/questions/154646/is-there-an-easy-way-to-get-the-frontmatter-mainmatter-and-backmatter-in-a-l
+% http://www-users.york.ac.uk/~pjh503/LaTeX/frontstuff.html
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+%======== Controling Line Spacing =================% 
+% espacio de 1.5 como en dummy word
+\linespread{1.3}
+
+
+\begin{document}
+
+\input{titlepage}
+\input{directorAproval}
+\input{codirectorAproval}
+\input{authorship}
+\input{dedicatory}
+\input{acknowledge}
+
+
+\frontmatter
+\tableofcontents
+% \cleardoublepage  %perhaps comment
+% \phantomsection   %perhaps comment
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+% \cleardoublepage  %perhaps comment
+% \phantomsection   %perhaps comment
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\newpage
+%Crear la lista de anexos
+
+\input{abstract}
+\input{resumen}
+% \chapter*{Dedication}
+% To mum and dad
+
+% \chapter*{Declaration}
+% I declare that..
+
+% \chapter*{Acknowledgements}
+% I want to thank...
+\mainmatter
+
+\chapter{Introduction}
+\label{chap:chap1_introduction}
+\input{chapters/chapter01_introduction}
+% Literature Review
+\chapter{Theoretical Framework and Literature Review}
+\label{chap:chap2_literature_review}
+\input{chapters/chapter02_LiteratureReview}
+
+\chapter{Research Methods}
+\label{chap:chap3_researach-methods}
+\input{chapters/chapter03_Methods}
+
+\chapter{Experimental Results}
+\label{chap:chap4_experimental-results}
+\input{chapters/chapter04_Results}
+
+\chapter{Conclusion}
+\input{chapters/chapter05_conclusion}
+
+\appendix
+\chapter{Appendix}
+\input{chapters/appendix}
+
+\printbibliography
+
+\end{document}
