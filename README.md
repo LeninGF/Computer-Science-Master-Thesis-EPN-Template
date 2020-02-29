@@ -4,3 +4,6 @@ This template is based on an Overleaf Template found at: put_address_here. It wa
 as similar as possible to the font and style used in EPN
 
 To use: just download the zip file and upload it to Overleaf if you want to work there. In texmaker or latex studio some additional work may be needed because of the Arial type of Font
+
+### How to compile
+Since the type of font is Arial, which is not a free one, in overleaf **LuaLatex must be set as Latex compiler**
